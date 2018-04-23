@@ -1,3 +1,20 @@
+/*
+*   This file is part of RobotC_Vex-Soccer-Goal
+*
+*   RobotC_Vex-Soccer-Goal is free software: you can redistribute it and/or modify
+*   it under the terms of the GNU General Public License as published by
+*   the Free Software Foundation, either version 3 of the License, or
+*   (at your option) any later version.
+*
+*   RobotC_Vex-Soccer-Goal is distributed in the hope that it will be useful,
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*   GNU General Public License for more details.
+*
+*   You should have received a copy of the GNU General Public License
+*   along with RobotC_Vex-Soccer-Goal.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #pragma config(Sensor, dgtl1,  SonarRight,     sensorSONAR_cm)
 #pragma config(Sensor, dgtl3,  SonarLeft,      sensorSONAR_cm)
 #pragma config(Sensor, dgtl6,  TouchLeft,      sensorTouch)
