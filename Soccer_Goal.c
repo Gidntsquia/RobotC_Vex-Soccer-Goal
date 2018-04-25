@@ -27,15 +27,48 @@ task main() {
     int score_green = 0;
     int score_red = 0;
     while (1 == 1) {
-        if (SensorV
+        if (SensorValue[TouchLeft] == 1) {
+            turnLEDOff(green);
+            if (score_green == 1) {
+                turnLEDOn(green);
+                turnLEDOff(green);
+            }
+            else if (score_green == 2) {
+                turnLEDOn(green);
+                turnLEDOff(green);
+                turnLEDOn(green);
+                turnLEDOff(green);
+            }
+            else if (score_green == 3) {
+                turnLEDOn(green);
+                turnLEDOff(green);
+                turnLEDOn(green);
+                turnLEDOff(green);
+                turnLEDOn(green);
+                turnLEDOff(green);
+            }
+            else if (score_green == 4) {
+                turnLEDOn(green);
+                turnLEDOff(green);
+                turnLEDOn(green);
+                turnLEDOff(green);
+                turnLEDOn(green);
+                turnLEDOff(green);
+                turnLEDOn(green);
+                turnLEDOff(green);
+                }
+        )
+        else {
+            continue
+        }
         while (1 == 1) {
             if (SensorValue[SonarRight] < 14) {
                 turnLEDOn(red);
-                score_red++;
+                ++score_red;
             }
             if (SensorValue[SonarLeft] < 14) {
                 turnLEDOn(green);
-                score_green++;
+                ++score_green;
             }
             if (SensorValue[SonarRight] >= 14) {
                 turnLEDOff(red);
@@ -43,13 +76,6 @@ task main() {
             if (SensorValue[SonarLeft] >= 14) {
                 turnLEDOff(green);
             }
-            if (SensorValue[TouchLeft] == 1) {
-                break
-                turnLEDoff(green);
-                    if score_green == 1 (
-                        turnLEDOn(green);
-                        turnLEDOff(green);
-                    }
         }
     }
 }
