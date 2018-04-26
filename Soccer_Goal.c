@@ -23,58 +23,45 @@
 *   along with RobotC_Vex-Soccer-Goal.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/*
+Task Description:
+Keep count of score and show that by observing LED's when a button is pressed; a point should be added to the score each time a goal is made.
+Psuedocode:
+Set all variables used for scoring to "0".
+Add a point to the score when an object passes by any of the two sonar sensors.
+If a button or limit switch is pressed/flicked when there are no objects in range of the sonar sensor, report score.
+*/
+
 task main() {
     int score_green = 0;
     int score_red = 0;
+    int g = 0;
+    int r = 0;
     while (1 == 1) {
-        if (SensorValue[TouchLeft] == 1) {
-            turnLEDOff(green);
-            if (score_green == 1) {
-                turnLEDOn(green);
-                turnLEDOff(green);
-            }
-            else if (score_green == 2) {
-                turnLEDOn(green);
-                turnLEDOff(green);
-                turnLEDOn(green);
-                turnLEDOff(green);
-            }
-            else if (score_green == 3) {
-                turnLEDOn(green);
-                turnLEDOff(green);
-                turnLEDOn(green);
-                turnLEDOff(green);
-                turnLEDOn(green);
-                turnLEDOff(green);
-            }
-            else if (score_green == 4) {
-                turnLEDOn(green);
-                turnLEDOff(green);
-                turnLEDOn(green);
-                turnLEDOff(green);
-                turnLEDOn(green);
-                turnLEDOff(green);
-                turnLEDOn(green);
-                turnLEDOff(green);
-                }
-        )
-        else {
-            continue
+        if (SensorValue[SonarRight] < 14) {
+            turnLEDOn(red);
+            ++score_red;
         }
-        while (1 == 1) {
-            if (SensorValue[SonarRight] < 14) {
+        if (SensorValue[SonarLeft] < 14) {
+            turnLEDOn(green);
+            ++score_green;
+        }
+        if (SensorValue[SonarRight] >= 14) {
+            turnLEDOff(red);
+            untilBump(TouchRight);
+            if (r < score_red) {
                 turnLEDOn(red);
-                ++score_red;
-            }
-            if (SensorValue[SonarLeft] < 14) {
-                turnLEDOn(green);
-                ++score_green;
-            }
-            if (SensorValue[SonarRight] >= 14) {
                 turnLEDOff(red);
+                ++r;
             }
-            if (SensorValue[SonarLeft] >= 14) {
+        }
+        if (SensorValue[SonarLeft] >= 14) {
+            turnLEDOff(green);
+            untilBump(TouchLeft);
+            if (g < score_green) {
+                turnLEDOn(green);
                 turnLEDOff(green);
+                ++g;
             }
         }
     }
